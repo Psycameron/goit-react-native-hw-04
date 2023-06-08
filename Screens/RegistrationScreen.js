@@ -21,7 +21,7 @@ const initialState = {
   password: "",
 };
 
-export default function RegistrationScreen() {
+export default function RegistrationScreen({ navigation }) {
   const [state, setState] = useState(initialState);
   const [isShowKeyboard, setIsShowKeyboard] = useState(false);
   const [isShowPassword, setIsShowPassword] = useState(true);
@@ -143,9 +143,12 @@ export default function RegistrationScreen() {
               >
                 <Text style={styles.textButton}>Зареєстуватися</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.link} activeOpacity={0.7}>
-                <Text style={styles.textLink}>Вже є акаунт? Увійти</Text>
-              </TouchableOpacity>
+              <View style={styles.toLoginWrapper} activeOpacity={0.7}>
+                <Text style={styles.textLink}>Вже є акаунт?</Text>
+                <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+                  <Text style={styles.textLink}>Увійти</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </KeyboardAvoidingView>
         </ImageBackground>
@@ -254,7 +257,11 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     color: "#FFFFFF",
   },
-  link: {},
+  toLoginWrapper: {
+    display: "flex",
+    flexDirection: "row",
+    gap: 4,
+  },
   textLink: {
     fontFamily: "Roboto",
 

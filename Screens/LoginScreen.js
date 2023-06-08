@@ -24,7 +24,7 @@ const initialState = {
   password: "",
 };
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   //   const [fontsLoaded] = useFonts({
   //     RobotoMedium: require("../assets/fonts/Roboto-Medium.ttf"),
   //     RobotoRegular: require("../assets/fonts/Roboto-Regular.ttf"),
@@ -127,11 +127,16 @@ export default function LoginScreen() {
               >
                 <Text style={styles.textButton}>Увійти</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.link} activeOpacity={0.7}>
-                <Text style={styles.textLink}>
-                  Немає акаунту? Зареєструватися
-                </Text>
-              </TouchableOpacity>
+              <View style={styles.toRegistrationWrapper} activeOpacity={0.7}>
+                <Text style={styles.textLink}>Немає акаунту?</Text>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("Registration")}
+                >
+                  <Text style={[styles.textLink, styles.link]}>
+                    Зареєструватися
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </KeyboardAvoidingView>
         </ImageBackground>
@@ -227,7 +232,11 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     color: "#FFFFFF",
   },
-  link: {},
+  toRegistrationWrapper: {
+    display: "flex",
+    flexDirection: "row",
+    gap: 4,
+  },
   textLink: {
     fontFamily: "Roboto",
 
@@ -237,5 +246,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
 
     color: "#1B4371",
+  },
+  link: {
+    textDecorationLine: "underline",
   },
 });
