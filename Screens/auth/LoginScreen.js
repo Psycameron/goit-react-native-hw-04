@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 import {
   View,
@@ -12,12 +12,7 @@ import {
   Keyboard,
 } from "react-native";
 
-import BackgroundImage from "../assets/images/bg.jpg";
-
-// import { useFonts } from "expo-font";
-// import * as SplashScreen from "expo-splash-screen";
-
-// SplashScreen.preventAutoHideAsync();
+import BackgroundImage from "../../assets/images/bg.jpg";
 
 const initialState = {
   email: "",
@@ -25,21 +20,6 @@ const initialState = {
 };
 
 export default function LoginScreen({ navigation }) {
-  //   const [fontsLoaded] = useFonts({
-  //     RobotoMedium: require("../assets/fonts/Roboto-Medium.ttf"),
-  //     RobotoRegular: require("../assets/fonts/Roboto-Regular.ttf"),
-  //     RobotoBold: require("../assets/fonts/Roboto-Bold.ttf"),
-  //   });
-
-  //   //   const onLayoutRootView = useCallback(async () => {
-  //   //     if (fontsLoaded) {
-  //   //       await SplashScreen.hideAsync();
-  //   //     }
-  //   //   }, [fontsLoaded]);
-
-  //   if (!fontsLoaded) {
-  //     return null;
-  //   }
   const [state, setState] = useState(initialState);
   const [isShowKeyboard, setIsShowKeyboard] = useState(false);
   const [isShowPassword, setIsShowPassword] = useState(true);
@@ -54,6 +34,7 @@ export default function LoginScreen({ navigation }) {
     keyboardHide();
     console.log(state);
     setState(initialState);
+    navigation.navigate("Home");
   };
 
   const handleInputFocus = (inputName) => {

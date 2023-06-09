@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
 
-export default function MapScreen() {
+export default function PostsScreen() {
   return (
     <View>
-      <Text>MapScreen</Text>
+      <Text>PostsScreen</Text>
     </View>
   );
 }

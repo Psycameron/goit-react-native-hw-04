@@ -13,7 +13,7 @@ import {
   Keyboard,
 } from "react-native";
 
-import BackgroundImage from "../assets/images/bg.jpg";
+import BackgroundImage from "../../assets/images/bg.jpg";
 
 const initialState = {
   login: "",
@@ -36,6 +36,7 @@ export default function RegistrationScreen({ navigation }) {
     keyboardHide();
     console.log(state);
     setState(initialState);
+    navigation.navigate("Home");
   };
 
   const handleInputFocus = (inputName) => {
